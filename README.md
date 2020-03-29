@@ -9,7 +9,7 @@ This project was originally generated with [Angular CLI](https://github.com/angu
 ## Marvel API
 First of all you'll need your own API credentials from the official Marvel API (https://developer.marvel.com). Add those credentials to the `environment.ts` file (src/environments/environment.ts):
 
-`typescript
+```typescript
 // Credentials for the Marvel API
 apiPublicKey: 'MyPublicKey',
 apiPrivateKey: 'MyPrivateKey',
@@ -18,7 +18,7 @@ timeStamp: 'MyTimestamp',
 // md5(Timestamp + Private Key + Public Key)
 // md5(MyTimestampMyPrivateKeyMyPublicKey)
 hash: 'MyGeneratedHash',
- `
+ ```
 
 `timeStamp` is just any random string (refer to the documentation) and the hash is generated via MD5 algorithm.
 
