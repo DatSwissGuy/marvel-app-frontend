@@ -1,0 +1,31 @@
+.login-header {
+  z-index: 3;
+  position: absolute;
+  width: 100%;
+
+  .logo {
+    float: left;
+    padding: 1rem;
+
+    img.marvel-logo {
+      height: 50px;
+    }
+  }
+
+  .log-in {
+    float: right;
+    color: white;
+    font-weight: bold;
+    padding: 1rem;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    p {
+      margin: 0;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<ul *ngIf="(totalPages > 1)">
+
+  <li class="button" [ngClass]="{disabled: isButtonFirstDisabled}">
+    <ng-template [ngIf]="!isButtonFirstDisabled" [ngIfElse]="buttonFirstDisabled">
+      <a (click)="firstPage()">&laquo; First</a>
+    </ng-template>
+    <ng-template #buttonFirstDisabled>
+      <p>&laquo; First</p>
+    </ng-template>
+  </li>
+
+  <li class="button" [ngClass]="{disabled: isButtonPreviousDisabled}">
+    <ng-template [ngIf]="!isButtonPreviousDisabled" [ngIfElse]="buttonPreviousDisabled">
+      <a (click)="previousPage()">&#8249; Previous</a>
+    </ng-template>
+    <ng-template #buttonPreviousDisabled>
+      <p>&#8249; Previous</p>
+    </ng-template>
+  </li>
+
+  <li class="current-total-pages">
+    <p> {{ page }} / {{ isTotalPagesNaN ? 'Unavailable' : totalPages }}</p>
+  </li>
+
+  <li class="button" [ngClass]="{disabled: isButtonNextDisabled}">
+    <ng-template [ngIf]="!isButtonNextDisabled" [ngIfElse]="buttonNextDisabled">
+      <a (click)="nextPage()">Next &#8250;</a>
+    </ng-template>
+    <ng-template #buttonNextDisabled>
+      <p>Next &#8250;</p>
+    </ng-template>
+  </li>
+
+  <li class="button" [ngClass]="{disabled: isButtonLastDisabled}">
+    <ng-template [ngIf]="!isButtonLastDisabled" [ngIfElse]="buttonLastDisabled">
+      <a (click)="lastPage()">Last &raquo;</a>
+    </ng-template>
+    <ng-template #buttonLastDisabled>
+      <p>Last &raquo;</p>
+    </ng-template>
+  </li>
+
+</ul>

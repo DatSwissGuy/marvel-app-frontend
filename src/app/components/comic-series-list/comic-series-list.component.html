@@ -1,0 +1,10 @@
+<ng-template [ngIf]="series.length !== 0" [ngIfElse]="noResults">
+  <div class="series-list">
+    <app-comic-card *ngFor="let serie of series" [comic]="serie"></app-comic-card>
+  </div>
+</ng-template>
+<ng-template #noResults>
+  <div class="series-list">
+    <p>No results found...</p>
+  </div>
+</ng-template>

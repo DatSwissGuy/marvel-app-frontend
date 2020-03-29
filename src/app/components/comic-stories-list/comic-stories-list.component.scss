@@ -1,0 +1,20 @@
+@import '../../../variables';
+
+.error {
+  color: $error-font-color;
+}
+
+.stories-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  ul {
+    list-style-type: square;
+
+    li {
+      color: $font-color;
+      padding: 0.25rem;
+    }
+  }
+}

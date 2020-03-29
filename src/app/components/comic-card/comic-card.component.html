@@ -1,0 +1,8 @@
+<div *ngIf="comic" class="comic-card">
+  <div class="comic-thumbnail">
+    <img src="{{comic.thumbnail?.path}}.{{comic.thumbnail?.extension}}" alt="{{comic.title}}">
+  </div>
+  <div class="comic-title">
+    <p>{{comic.title}}</p>
+  </div>
+</div>

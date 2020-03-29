@@ -1,0 +1,12 @@
+<ng-template [ngIf]="stories.length !== 0" [ngIfElse]="noResults">
+  <div class="stories-list">
+    <ul>
+      <li *ngFor="let story of stories">{{story.title}}</li>
+    </ul>
+  </div>
+</ng-template>
+<ng-template #noResults>
+  <div class="stories-list">
+    <p>No results found...</p>
+  </div>
+</ng-template>

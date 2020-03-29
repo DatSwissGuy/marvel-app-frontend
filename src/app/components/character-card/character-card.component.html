@@ -1,0 +1,15 @@
+<div *ngIf="character" class="character-card">
+  <div class="character-thumbnail">
+    <a routerLink="/character/{{character.id}}">
+      <ng-template [ngIf]="hasThumbnail()" [ngIfElse]="noCharacterImage">
+        <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="{{character.name}}">
+      </ng-template>
+      <ng-template #noCharacterImage>
+        <img src="../../../assets/no-character.jpg" alt="no-character-image"/>
+      </ng-template>
+    </a>
+  </div>
+  <div class="character-name">
+    <p>{{character.name}}</p>
+  </div>
+</div>

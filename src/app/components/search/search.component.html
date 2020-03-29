@@ -1,0 +1,29 @@
+<div (mouseout)="onMouseout()" class="search-area">
+  <div class="search">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search..."
+      [formControl]="searchTermControl"
+      (blur)="onBlur()"
+      (keyup.escape)="onBlur()"
+      (keyup.enter)="onKeyUpEnter()"
+      (focus)="onFocus()"
+      (keypress)="onFocus()"
+      (keyup.backspace)="onFocus()"
+    >
+    <button type="submit" class="search-icon"></button>
+  </div>
+  <div *ngIf="focusOnSearching || focusOnSearchResults" class="search-results">
+    <ul *ngIf="searchResults">
+      <li *ngFor="let searchResult of searchResults"
+          (mouseover)="onMouseover()">
+        <a (click)="searchClick.emit(searchResult.id)"
+           [innerHTML]="searchResult.search | highlight:searchTermControl.value"></a>
+      </li>
+      <li *ngIf="isSearchResultZero()" class="no-search-results">
+        No results...
+      </li>
+    </ul>
+  </div>
+</div>

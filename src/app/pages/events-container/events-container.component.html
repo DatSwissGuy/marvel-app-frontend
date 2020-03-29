@@ -1,0 +1,16 @@
+<app-search
+  [searchTerm]="searchTerm"
+  [searchResults]="searchResults$ | async"
+  (searchChange)="onSearchQueryChange($event)"
+  (searchEnter)="onSearchBlur()">
+</app-search>
+
+<app-comic-events-list *ngIf="(events$ | async) && (events$ | async).results"
+                       [events]="(events$ | async).results"></app-comic-events-list>
+
+<app-pagination *ngIf="events$| async"
+                [total]="(events$ | async).total"
+                [limit]="(events$ | async).limit"
+                [offset]="(events$ | async).offset"
+                (pageChange)="onPageChange($event)">
+</app-pagination>

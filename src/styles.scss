@@ -1,0 +1,14 @@
+@import 'variables';
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: $bg-color;
+}
+
+mark {
+  background-color: rgba(0,0,0,0);
+  color: black;
+  font-weight: bolder;
+}
+

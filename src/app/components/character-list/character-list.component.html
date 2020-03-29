@@ -1,0 +1,10 @@
+<ng-template [ngIf]="characters.length !== 0" [ngIfElse]="noResults">
+  <div class="character-list">
+    <app-character-card *ngFor="let character of characters" [character]="character"></app-character-card>
+  </div>
+</ng-template>
+<ng-template #noResults>
+  <div class="character-list">
+    <p>No results found...</p>
+  </div>
+</ng-template>

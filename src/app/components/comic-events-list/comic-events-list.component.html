@@ -1,0 +1,10 @@
+<ng-template [ngIf]="events.length !== 0" [ngIfElse]="noResults">
+  <div class="events-list">
+    <app-comic-card *ngFor="let event of events" [comic]="event"></app-comic-card>
+  </div>
+</ng-template>
+<ng-template #noResults>
+  <div class="events-list">
+    <p>No results found...</p>
+  </div>
+</ng-template>

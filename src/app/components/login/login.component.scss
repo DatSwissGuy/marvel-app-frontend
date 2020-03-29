@@ -1,0 +1,69 @@
+@import '../../../variables';
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .logo {
+    padding: 1rem;
+
+    img.marvel-logo {
+      height: 50px;
+    }
+  }
+
+  .login-box {
+    width: 400px;
+
+    form {
+      padding: 1rem;
+      background-color: white;
+      -webkit-box-shadow: $box-shadow;
+      -moz-box-shadow: $box-shadow;
+      box-shadow: $box-shadow;
+      outline: grey;
+
+      .form-group {
+        padding: 0.25rem;
+        margin-bottom: 0.75rem;
+
+        label {
+          display: block;
+          color: $font-color;
+          padding: 0.25rem 0;
+        }
+
+        input[type=text] {
+          box-sizing: border-box;
+          font-size: 0.75rem;
+          padding: 0.50rem;
+          width: 100%;
+        }
+
+        input[type=password] {
+          box-sizing: border-box;
+          font-size: 0.75rem;
+          padding: 0.50rem;
+          width: 100%;
+        }
+      }
+
+      input[type=submit] {
+        font-size: 1rem;
+        background-color: $header-bg-color;
+        border: none;
+        color: white;
+        padding: 0.5rem;
+        text-decoration: none;
+        cursor: pointer;
+        width: 100%;
+      }
+    }
+  }
+
+  .invalid-feedback {
+    color: red;
+    font-size: 80%;
+  }
+}

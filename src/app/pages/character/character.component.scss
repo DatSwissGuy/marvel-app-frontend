@@ -1,0 +1,22 @@
+.container {
+
+  display: flex;
+  min-height: 80vh;
+
+  .sidebar {
+    width: 25vw;
+    flex-grow: 0;
+    background-color: #dddddd;
+  }
+
+  .content {
+    width: 75vw;
+    flex-grow: 1;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .sidebar {
+    display: none;
+  }
+}

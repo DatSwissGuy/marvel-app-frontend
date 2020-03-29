@@ -1,0 +1,41 @@
+<a routerLink="/">
+  <button class="back">&#8678; Back</button>
+</a>
+<div class="character-panel">
+
+  <div class="character-polaroid">
+    <ng-template [ngIf]="characterImage" [ngIfElse]="noCharacterImage">
+      <div class="character-pic" [ngStyle]="{ 'background-image': 'url(' + characterImage + ')'}">
+        <div *ngIf="pageVisits >=0" class="page-visits">
+          <div class="counter" [countUp]="pageVisits"
+               [reanimateOnClick]="false"
+               [options]="{useGrouping: false}"
+               (complete)="countOneUp()"></div>
+          <p class="plus-one" *ngIf="shouldAnimate">+1</p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #noCharacterImage>
+      <div class="character-pic" [ngStyle]="{ 'background-image': 'url(../../../assets/no-character.jpg)' }">
+        <div *ngIf="pageVisits >=0" class="page-visits">
+          <div class="counter" [countUp]="pageVisits"
+               [reanimateOnClick]="false"
+               [options]="{useGrouping: false}"
+               (complete)="countOneUp()"></div>
+          <p class="plus-one" *ngIf="shouldAnimate">+1</p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <ng-content></ng-content>
+  <div *ngIf="characterDescription" class="character-description">
+    <h3>{{characterName}}</h3>
+    <p>{{characterDescription}}</p>
+  </div>
+  <div class="character-footer">
+    <button *ngIf="characterWikiUrl" class="wiki-link" (click)="openWikiLink()">
+      <span>More Info</span>
+    </button>
+  </div>
+</div>
+

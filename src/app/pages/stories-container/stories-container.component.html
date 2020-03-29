@@ -1,0 +1,9 @@
+<app-comic-stories-list *ngIf="(stories$ | async) && (stories$ | async).results"
+                        [stories]="(stories$ | async).results"></app-comic-stories-list>
+
+<app-pagination *ngIf="stories$| async"
+                [total]="(stories$ | async).total"
+                [limit]="(stories$ | async).limit"
+                [offset]="(stories$ | async).offset"
+                (pageChange)="onPageChange($event)">
+</app-pagination>

@@ -1,0 +1,30 @@
+<div class="rating-container">
+  <div class="star-ratings-css">
+    <div *ngIf="isLoggedIn" class="star-ratings-css-vote">
+      <span (click)="vote(1)">★</span>
+      <span (click)="vote(2)">★</span>
+      <span (click)="vote(3)">★</span>
+      <span (click)="vote(4)">★</span>
+      <span (click)="vote(5)">★</span>
+    </div>
+    <div class="star-ratings-css-top" [ngStyle]="{'width': averageRating * 20 + '%'}">
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+    </div>
+    <div class="star-ratings-css-bottom">
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+    </div>
+  </div>
+  <p *ngIf="userRating"><b>My rating:</b> {{userRating}} Stars</p>
+  <button *ngIf="userRating" (click)="deleteRating()">Delete my rating</button>
+  <p *ngIf="!isLoggedIn">Sign in to vote!</p>
+  <p *ngIf="isLoggedIn && !userRating">You haven't voted yet. Click on a star to vote!</p>
+  <p *ngIf="isLoggedIn && userRating">Click on a star to update your vote!</p>
+</div>

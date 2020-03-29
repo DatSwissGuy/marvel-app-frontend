@@ -1,0 +1,14 @@
+<ul class="character-nav">
+  <li *ngIf="hasComics" (click)="onTabClick('comics')" [ngClass]="{activeTab: activeTab === 'comics'}">
+    Comics
+  </li>
+  <li *ngIf="hasSeries" (click)="onTabClick('series')" [ngClass]="{activeTab: activeTab === 'series'}">
+    Series
+  </li>
+  <li *ngIf="hasStories" (click)="onTabClick('stories')" [ngClass]="{activeTab: activeTab === 'stories'}">
+    Stories
+  </li>
+  <li *ngIf="hasEvents" (click)="onTabClick('events')" [ngClass]="{activeTab: activeTab === 'events'}">
+    Events
+  </li>
+</ul>

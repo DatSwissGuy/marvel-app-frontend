@@ -1,0 +1,15 @@
+@import '../../../variables';
+
+.error {
+  color: $error-font-color;
+}
+
+.events-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  p {
+    color: $font-color;
+  }
+}

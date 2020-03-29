@@ -1,0 +1,65 @@
+@import "src/variables";
+
+.rating-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  background-color: white;
+  -webkit-box-shadow: $box-shadow;
+  -moz-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+
+  width: 17vw;
+  position: relative;
+  top: -7vh;
+  padding: 1rem;
+
+  p {
+    color: $font-color;
+    margin: 0.25rem 0;
+  }
+}
+
+
+.star-ratings-css {
+  color: #c5c5c5;
+  font-size: 25px;
+  height: 25px;
+  position: relative;
+  line-height: 1;
+
+  &-vote {
+    padding: 0;
+    position: absolute;
+    z-index: 2;
+    display: block;
+    top: 0;
+    left: 0;
+
+    span {
+      opacity: 0;
+    }
+
+    span:hover {
+      opacity: 100%;
+      color: darkred;
+      cursor: pointer;
+    }
+  }
+
+  &-top {
+    color: rgb(183, 29, 37);
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    overflow: hidden;
+  }
+
+  &-bottom {
+    padding: 0;
+    display: block;
+    z-index: 0;
+  }
+}

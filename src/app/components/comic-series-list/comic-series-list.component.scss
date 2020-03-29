@@ -1,0 +1,16 @@
+@import '../../../variables';
+
+.error {
+  color: $error-font-color;
+}
+
+.series-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+
+  p {
+    color: $font-color;
+  }
+}
