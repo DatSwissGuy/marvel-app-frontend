@@ -23,7 +23,8 @@ hash: 'MyGeneratedHash',
 `timeStamp` is just any random string (refer to the documentation) and the hash is generated via MD5 algorithm.
 
 ## Laravel
+The Laravel app (serving as a backend basically) is in a separate repository which i still have to add. 
 
 # TODO's
-
-Finish this readme :)
+- Finish this readme :)
+- Add backend repos
