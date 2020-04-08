@@ -5,6 +5,7 @@ import * as fromRouter from '@ngrx/router-store';
 import * as fromMarvel from './marvel.reducer';
 import * as fromAuth from './auth.reducer';
 import * as fromRating from './rating.reducer';
+import * as fromPageVisit from './page-visits.reducer';
 
 
 export interface State {
@@ -12,13 +13,15 @@ export interface State {
   marvel: fromMarvel.State;
   auth: fromAuth.State;
   rating: fromRating.State;
+  pageVisits: fromPageVisit.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
   router: fromRouter.routerReducer,
   marvel: fromMarvel.reducer,
   auth: fromAuth.reducer,
-  rating: fromRating.reducer
+  rating: fromRating.reducer,
+  pageVisits: fromPageVisit.reducer
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
@@ -28,6 +31,8 @@ export const selectMarvelState = createFeatureSelector<State, fromMarvel.State>(
 export const selectAuthState = createFeatureSelector<State, fromAuth.State>('auth');
 
 export const selectRatingState = createFeatureSelector<State, fromRating.State>('rating');
+
+export const selectPageVisitState = createFeatureSelector<State, fromPageVisit.State>('pageVisits');
 
 export const getCharacterApiResults = createSelector(
   selectMarvelState,
@@ -137,4 +142,9 @@ export const getAverageCharacterRating = createSelector(
 export const getUserCharacterRating = createSelector(
   selectRatingState,
   fromRating.getUserCharacterRating
+);
+
+export const getPageVisits = createSelector(
+  selectPageVisitState,
+  fromPageVisit.getPageVisits
 );

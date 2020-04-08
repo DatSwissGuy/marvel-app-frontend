@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { MarvelActions } from '../actions';
-import { filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
+import { MarvelActions, PageVisitsActions } from '../actions';
+import { filter, map, switchMap, take, withLatestFrom } from 'rxjs/operators';
 import { MarvelApiService } from '../services/marvel-api.service';
 import {
   RequestCharacterComicList,
+  RequestCharacterDetail,
   RequestCharacterEventsSearch,
   RequestCharacterList,
   RequestCharacterSearch,
@@ -31,8 +32,11 @@ import {
   getCharacterComicSeriesApiResults,
   getCharacterDetailApiResults,
   getComicEventsApiResults,
-  getComicStoriesApiResults
+  getComicStoriesApiResults,
+  getPageVisits
 } from '../reducers';
+import { RequestPageVisits, SuccessPageVisits } from '../actions/page-visits.actions';
+import { PageVisitsService } from '../services/page-visits.service';
 
 
 @Injectable()
@@ -40,6 +44,7 @@ export class MarvelEffects {
   constructor(
     private actions$: Actions<MarvelActions.MarvelActionsUnion>,
     private apiService: MarvelApiService,
+    private pageVisitsService: PageVisitsService,
     private store: Store<any>
   ) {
   }
@@ -312,6 +317,29 @@ export class MarvelEffects {
         map(data => new SuccessCharacterDetail({apiResults: data}))
       );
     })
+  );
+
+  @Effect()
+  requestPageVisits$ = this.actions$.pipe(
+    ofType<RequestCharacterDetail>(MarvelActions.MarvelActionTypes.RequestCharacterDetail),
+    map(action => new RequestPageVisits({
+      characterId: action.payload.characterId
+    }))
+  );
+
+  @Effect()
+  successPageVisits$ = this.actions$.pipe(
+    ofType<RequestPageVisits>(PageVisitsActions.PageVisitsActionTypes.RequestPageVisits),
+    withLatestFrom(this.store.select(getPageVisits)),
+    switchMap(([action]) => this.pageVisitsService.getCharacterVisits(
+      action.payload.characterId
+      ).pipe(
+      map(pageVisits => new SuccessPageVisits({
+        pageVisits: pageVisits.data
+      })),
+      take(1)
+      )
+    )
   );
 
 }

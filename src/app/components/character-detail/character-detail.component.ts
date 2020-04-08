@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PageVisitsService } from '../../services/page-visits.service';
 import { Observable } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { getPageVisits } from '../../reducers';
+import { PageVisits } from '../../model/page-visits';
 
 @Component({
   selector: 'app-character-detail',
@@ -11,7 +13,8 @@ import { map, take } from 'rxjs/operators';
 export class CharacterDetailComponent implements OnInit {
 
   constructor(
-    private pageVisitsService: PageVisitsService
+    private pageVisitsService: PageVisitsService,
+    private store: Store<any>,
   ) {
   }
 
@@ -20,29 +23,22 @@ export class CharacterDetailComponent implements OnInit {
   @Input() characterDescription: string;
   @Input() characterWikiUrl: string;
   @Input() characterId: number;
-  @Input() pageVisits: number;
 
   private alreadyVisited: boolean;
   public shouldAnimate = false;
-  private pageVisits$: Observable<number>;
+  public pageVisits: number;
+  private pageVisits$: Observable<PageVisits>;
 
   ngOnInit(): void {
-    this.pageVisits$ = this.pageVisitsService.getCharacterVisits(this.characterId).pipe(
-      map(response => {
-        if (response.data.already_visited) {
-          this.alreadyVisited = true;
-          return this.pageVisits = response.data.visits;
+    this.pageVisits$ = this.store.select(getPageVisits);
+    this.pageVisits$.subscribe(
+      response => {
+        if (response) {
+          this.alreadyVisited = response.already_visited;
+          this.pageVisits = this.alreadyVisited ? response.visits : response.visits - 1;
         }
-        if (response.data.visits === 1) {
-          this.alreadyVisited = false;
-          return this.pageVisits = 0;
-        }
-        this.alreadyVisited = false;
-        return this.pageVisits = response.data.visits - 1;
-      }),
-      take(1)
+      }
     );
-    this.pageVisits$.subscribe();
   }
 
   openWikiLink(): void {
