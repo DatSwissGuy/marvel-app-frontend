@@ -8,7 +8,12 @@
                           [characterDescription]="(character$ | async) ? (character$ | async).description : null"
                           [characterWikiUrl]="(characterWikiUrl$ | async) ? (characterWikiUrl$ | async).url : null"
                           [characterName]="(character$ | async) ? (character$ | async).name : null"
-                          [characterId]="characterId">
+                          [characterId]="characterId"
+                          [isLoggedIn]="isLoggedIn$ | async"
+                          [isFavorite]="isFavorite$ | async"
+                          [isFavoritesLoaded]="isFavoritesLoaded$ | async"
+                          (addFavorite)="addToFavorites()"
+                          (deleteFavorite)="deleteFromFavorites()">
       <app-rating [averageRating]="(averageRating$ | async) ? (averageRating$ | async).average : null"
                   [userRating]="(userRating$ | async) ? (userRating$ | async).rating : null"
                   [isLoggedIn]="isLoggedIn$ | async"

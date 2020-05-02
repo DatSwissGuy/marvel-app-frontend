@@ -1,0 +1,4 @@
+<app-favorite-list *ngIf="(favorites$ | async)"
+                   [favorites]="(favorites$ | async)"
+                   (deleteFavorite)="deleteFromFavorites($event)">
+</app-favorite-list>

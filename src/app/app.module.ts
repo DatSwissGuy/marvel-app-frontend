@@ -43,7 +43,18 @@ import { RatingComponent } from './components/rating/rating.component';
 import { UserEffects } from './effects/user.effects';
 import { BackendApiInterceptor } from './http-interceptors/backend-api.interceptor';
 import { CountUpModule } from 'ngx-countup';
+// IPA 2020
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { UserProfileNavComponent } from './components/user-profile-nav/user-profile-nav.component';
+import { FavoritesContainerComponent } from './pages/favorites-container/favorites-container.component';
+import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
+import { TabTwoContainerComponent } from './pages/tab-two-container/tab-two-container.component';
+import { TabTwoListComponent } from './components/tab-two-list/tab-two-list.component';
+import { FavoriteCardComponent } from './components/favorite-card/favorite-card.component';
+import { FavoriteEffects } from './effects/favorite.effects';
 
+// IPA 2020
 
 @NgModule({
   declarations: [
@@ -70,14 +81,24 @@ import { CountUpModule } from 'ngx-countup';
     CharacterDetailComponent,
     HeaderLoginComponent,
     LoginComponent,
-    RatingComponent
+    RatingComponent,
+    UserProfileComponent,
+    UserDetailComponent,
+    UserProfileNavComponent,
+    FavoritesContainerComponent,
+    FavoriteListComponent,
+    TabTwoContainerComponent,
+    TabTwoListComponent,
+    FavoriteCardComponent
   ],
   entryComponents: [
     CharactersComponent,
     ComicsContainerComponent,
     SeriesContainerComponent,
     StoriesContainerComponent,
-    EventsContainerComponent
+    EventsContainerComponent,
+    FavoritesContainerComponent,
+    TabTwoContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +111,7 @@ import { CountUpModule } from 'ngx-countup';
     }),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([MarvelEffects, AuthEffects, RatingEffects, UserEffects]),
+    EffectsModule.forRoot([MarvelEffects, AuthEffects, RatingEffects, UserEffects, FavoriteEffects]),
   ],
   providers: [
     {

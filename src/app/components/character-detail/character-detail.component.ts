@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { PageVisitsService } from '../../services/page-visits.service';
-import { Observable } from 'rxjs';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { getPageVisits } from '../../reducers';
 import { PageVisits } from '../../model/page-visits';
@@ -10,10 +9,11 @@ import { PageVisits } from '../../model/page-visits';
   templateUrl: './character-detail.component.html',
   styleUrls: ['./character-detail.component.scss']
 })
-export class CharacterDetailComponent implements OnInit {
+export class CharacterDetailComponent implements OnInit, OnDestroy {
+
+  // TODO add a tooltip for favorite button
 
   constructor(
-    private pageVisitsService: PageVisitsService,
     private store: Store<any>,
   ) {
   }
@@ -23,15 +23,22 @@ export class CharacterDetailComponent implements OnInit {
   @Input() characterDescription: string;
   @Input() characterWikiUrl: string;
   @Input() characterId: number;
+  @Input() isLoggedIn: boolean;
+  @Input() isFavorite: boolean;
+  @Input() isFavoritesLoaded: boolean;
+
+  @Output() addFavorite = new EventEmitter();
+  @Output() deleteFavorite = new EventEmitter();
 
   private alreadyVisited: boolean;
   public shouldAnimate = false;
   public pageVisits: number;
   private pageVisits$: Observable<PageVisits>;
+  private pageVisitSubscription: Subscription;
 
   ngOnInit(): void {
     this.pageVisits$ = this.store.select(getPageVisits);
-    this.pageVisits$.subscribe(
+    this.pageVisitSubscription = this.pageVisits$.subscribe(
       response => {
         if (response) {
           this.alreadyVisited = response.already_visited;
@@ -39,6 +46,14 @@ export class CharacterDetailComponent implements OnInit {
         }
       }
     );
+  }
+
+  addToFavorites() {
+    this.addFavorite.emit();
+  }
+
+  deleteFromFavorites() {
+    this.deleteFavorite.emit();
   }
 
   openWikiLink(): void {
@@ -54,4 +69,9 @@ export class CharacterDetailComponent implements OnInit {
       }, 1000);
     }
   }
+
+  ngOnDestroy(): void {
+    this.pageVisitSubscription.unsubscribe();
+  }
+
 }

@@ -14,13 +14,21 @@
       </div>
     </div>
   </div>
+  <div *ngIf="isFavoritesLoaded" class="favorite">
+    <button *ngIf="isFavorite" (click)="deleteFromFavorites()" class="skewed">
+      <span>Remove from Favorites</span>
+    </button>
+    <button *ngIf="!isFavorite" (click)="addToFavorites()" class="skewed">
+      <span>Add to Favorites</span>
+    </button>
+  </div>
   <ng-content></ng-content>
   <div *ngIf="characterDescription" class="character-description">
     <h3>{{characterName}}</h3>
     <p>{{characterDescription}}</p>
   </div>
   <div class="character-footer">
-    <button *ngIf="characterWikiUrl" class="wiki-link" (click)="openWikiLink()">
+    <button *ngIf="characterWikiUrl" class="skewed" (click)="openWikiLink()">
       <span>More Info</span>
     </button>
   </div>

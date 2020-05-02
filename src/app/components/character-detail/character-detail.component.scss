@@ -24,6 +24,7 @@ button.back {
 }
 
 .character-panel {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,6 +103,19 @@ button.back {
   }
 }
 
+.favorite {
+  margin: 0 1rem;
+  z-index: 1;
+  padding: 0 1rem;
+  -webkit-box-shadow: $box-shadow;
+  -moz-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+  background-color: white;
+  position: relative;
+  top: 0;
+  width: 20vw;
+  text-align: center;
+}
 
 .character-description {
   margin: 0 1rem;
@@ -112,12 +126,11 @@ button.back {
   padding: 0 1rem;
   background-color: white;
   position: relative;
-  top: -6vh;
+  top: 4vh;
   width: 20vw;
 
   h3 {
     color: $font-color;
-    line-height: 1.5vw;
   }
 
   p {
@@ -127,10 +140,12 @@ button.back {
 
 
 .character-footer {
+  position: relative;
+  top: 5vh;
   z-index: 1;
 }
 
-button.wiki-link {
+button.skewed {
   transform: skewX(-20deg);
   opacity: 0.6;
   cursor: pointer;
@@ -161,6 +176,7 @@ button.wiki-link {
 @media only screen and (max-width: 600px) {
 
   .character-panel {
+    margin-bottom: 2rem;
 
     .character-thumbnail {
 
@@ -187,9 +203,8 @@ button.wiki-link {
     width: 80vw;
   }
 
-  button.wiki-link {
-    position: relative;
-    top: -2rem;
+  .favorite {
+    width: 80vw;
   }
 
 }

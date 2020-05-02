@@ -9,11 +9,14 @@ import {
   getCharacterDetailApiResults,
   getCharacterHeaderImage,
   getCharacterWikiUrl,
+  getFavoriteId,
   getHasComics,
   getHasEvents,
   getHasSeries,
   getHasStories,
   getIsAuthenticated,
+  getIsFavorite,
+  getIsFavoritesLoaded,
   getUserCharacterRating
 } from '../../reducers';
 import { MarvelCharacter } from '../../model/marvel-character';
@@ -31,6 +34,7 @@ import {
 } from '../../actions/rating.actions';
 import { AverageCharacterRating } from '../../model/average-character-rating';
 import { CharacterRating } from '../../model/character-rating';
+import { RequestAddFavorite, RequestDeleteFavorite } from '../../actions/favorite.actions';
 
 @Component({
   selector: 'app-character',
@@ -52,6 +56,14 @@ export class CharacterComponent implements OnInit {
   userRating: CharacterRating;
   isLoggedIn$: Observable<boolean>;
   isLoggedIn: boolean;
+
+  // IPA 2020
+  isFavorite$: Observable<boolean>;
+  isFavoritesLoaded$: Observable<boolean>;
+  favoriteId: number;
+  characterName: string;
+  characterImage: string;
+  // IPA 2020
 
   constructor(
     private router: Router,
@@ -91,8 +103,41 @@ export class CharacterComponent implements OnInit {
         characterId: this.characterId
       }));
     }
+
+    // IPA 2020
+    this.isFavorite$ = this.store.select(getIsFavorite);
+    this.store.select(getCharacterDetailApiResults).subscribe(
+      character => {
+        if (character) {
+          this.characterImage = character.thumbnail.path + '.' + character.thumbnail.extension;
+          this.characterName = character.name;
+        }
+      }
+    );
+    this.store.select(getFavoriteId).subscribe(
+      favoriteId => this.favoriteId = favoriteId
+    );
+    this.isFavoritesLoaded$ = this.store.select(getIsFavoritesLoaded);
+    // IPA 2020
   }
 
+  // IPA 2020
+  addToFavorites(): void {
+    this.store.dispatch(new RequestAddFavorite({
+      characterId: this.characterId,
+      characterName: this.characterName,
+      imageUrl: this.characterImage
+    }));
+  }
+
+  deleteFromFavorites(): void {
+    if (this.favoriteId) {
+      this.store.dispatch(new RequestDeleteFavorite({
+        favoriteId: this.favoriteId
+      }));
+    }
+  }
+  // IPA 2020
 
   onTabChange(event): void {
     this.router.navigate(['character', this.characterId, event]);

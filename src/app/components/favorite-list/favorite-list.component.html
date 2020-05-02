@@ -1,0 +1,11 @@
+<ng-template [ngIf]="favorites.length !== 0" [ngIfElse]="noResults">
+  <div class="favorite-list">
+    <app-favorite-card *ngFor="let favorite of favorites" [favorite]="favorite"
+                       (deleteFavorite)="deleteFromFavorites($event)"></app-favorite-card>
+  </div>
+</ng-template>
+<ng-template #noResults>
+  <div class="favorite-list">
+    <p>No results found...</p>
+  </div>
+</ng-template>
