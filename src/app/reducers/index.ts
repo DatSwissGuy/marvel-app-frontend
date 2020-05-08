@@ -160,8 +160,6 @@ export const getFavorites = createSelector(
   fromFavorite.getFavorites
 );
 
-// IPA 2020
-// TODO edge cases?
 export const getIsFavorite = createSelector(
   getFavorites,
   getCharacterDetailApiResults,
