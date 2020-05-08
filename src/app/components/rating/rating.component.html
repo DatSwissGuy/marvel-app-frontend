@@ -23,7 +23,7 @@
     </div>
   </div>
   <p *ngIf="userRating"><b>My rating:</b> {{userRating}} Stars</p>
-  <button *ngIf="userRating" (click)="deleteRating()">Delete my rating</button>
+  <button class="delete-voting" *ngIf="userRating" (click)="deleteRating()"><span>Delete my rating</span></button>
   <p *ngIf="!isLoggedIn">Sign in to vote!</p>
   <p *ngIf="isLoggedIn && !userRating">You haven't voted yet. Click on a star to vote!</p>
   <p *ngIf="isLoggedIn && userRating">Click on a star to update your vote!</p>

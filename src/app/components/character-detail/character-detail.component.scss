@@ -28,30 +28,31 @@ button.back {
   flex-direction: column;
   align-items: center;
 
-  .character-polaroid {
+  .character-thumbnail {
 
     .character-pic {
       border-radius: 50%;
       -webkit-box-shadow: $box-shadow;
       -moz-box-shadow: $box-shadow;
       box-shadow: $box-shadow;
-      width: 21vw;
-      height: 21vw;
+      min-width: 21vw;
+      min-height: 21vw;
       background-size: cover;
       border: 0.25rem solid white;
       margin: 1rem;
     }
 
-    div.page-visits {
+    .page-visits {
       position: relative;
       left: 16vw;
+      top: 1vh;
       font-size: 1rem;
       font-weight: bold;
       border-radius: 50%;
-      background-color: #b71d25;
-      border: 5px solid #b71d25;
+      background-color: rgb(183, 29, 37);
+      border: 5px solid rgb(183, 29, 37);
       color: white;
-      padding: 1.5vw;
+      padding: 0.5vw;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -59,7 +60,7 @@ button.back {
       -moz-box-shadow: $box-shadow;
       box-shadow: $box-shadow;
 
-      div.counter {
+      .counter {
         overflow: visible;
         height: 0;
         margin-top: -1rem;
@@ -109,10 +110,10 @@ button.back {
   box-shadow: $box-shadow;
   z-index: 1;
   padding: 0 1rem;
-  width: 17vw;
   background-color: white;
   position: relative;
   top: -6vh;
+  width: 20vw;
 
   h3 {
     color: $font-color;
@@ -157,6 +158,41 @@ button.wiki-link {
 }
 
 
+@media only screen and (max-width: 600px) {
+
+  .character-panel {
+
+    .character-thumbnail {
+
+      .character-pic {
+        width: 65vw;
+        height: 65vw;
+      }
+
+      .page-visits {
+        left: 50vw;
+        top: 2vh;
+        padding: 1vw;
+
+        .counter {
+          overflow: visible;
+          height: 0;
+          margin-top: -1rem;
+        }
+      }
+    }
+  }
+
+  .character-description {
+    width: 80vw;
+  }
+
+  button.wiki-link {
+    position: relative;
+    top: -2rem;
+  }
+
+}
 
 
 
