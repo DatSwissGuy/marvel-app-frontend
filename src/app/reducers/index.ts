@@ -160,6 +160,7 @@ export const getFavorites = createSelector(
   fromFavorite.getFavorites
 );
 
+// TODO edge cases?
 export const getIsFavorite = createSelector(
   getFavorites,
   getCharacterDetailApiResults,
