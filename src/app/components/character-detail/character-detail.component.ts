@@ -14,7 +14,7 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
   // TODO add a tooltip for favorite button
 
   constructor(
-    private store: Store<any>,
+    private store: Store<any>
   ) {
   }
 
