@@ -14,15 +14,8 @@
       </div>
     </div>
   </div>
-  <div *ngIf="isFavoritesLoaded" class="favorite">
-    <button *ngIf="isFavorite" (click)="deleteFromFavorites()" class="skewed">
-      <span>Remove from Favorites</span>
-    </button>
-    <button *ngIf="!isFavorite" (click)="addToFavorites()" class="skewed">
-      <span>Add to Favorites</span>
-    </button>
-  </div>
-  <ng-content></ng-content>
+  <ng-content select="[slot=favorite-component]"></ng-content>
+  <ng-content select="[slot=rating-component]"></ng-content>
   <div *ngIf="characterDescription" class="character-description">
     <h3>{{characterName}}</h3>
     <p>{{characterDescription}}</p>

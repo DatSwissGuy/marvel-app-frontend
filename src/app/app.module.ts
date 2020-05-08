@@ -53,6 +53,7 @@ import { TabTwoContainerComponent } from './pages/tab-two-container/tab-two-cont
 import { TabTwoListComponent } from './components/tab-two-list/tab-two-list.component';
 import { FavoriteCardComponent } from './components/favorite-card/favorite-card.component';
 import { FavoriteEffects } from './effects/favorite.effects';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 
 // IPA 2020
 
@@ -89,7 +90,8 @@ import { FavoriteEffects } from './effects/favorite.effects';
     FavoriteListComponent,
     TabTwoContainerComponent,
     TabTwoListComponent,
-    FavoriteCardComponent
+    FavoriteCardComponent,
+    FavoriteComponent
   ],
   entryComponents: [
     CharactersComponent,

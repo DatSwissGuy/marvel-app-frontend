@@ -14,14 +14,20 @@
                           [isFavoritesLoaded]="isFavoritesLoaded$ | async"
                           (addFavorite)="addToFavorites()"
                           (deleteFavorite)="deleteFromFavorites()">
-      <app-rating [averageRating]="(averageRating$ | async) ? (averageRating$ | async).average : null"
+      <app-rating slot="rating-component"
+                  [averageRating]="(averageRating$ | async) ? (averageRating$ | async).average : null"
                   [userRating]="(userRating$ | async) ? (userRating$ | async).rating : null"
                   [isLoggedIn]="isLoggedIn$ | async"
                   (voting)="vote($event)"
                   (deleteVoting)="deleteVote($event)">
       </app-rating>
+      <app-favorite slot="favorite-component"
+                    [isFavorite]="isFavorite$ | async"
+                    [isFavoritesLoaded]="isFavoritesLoaded$ | async"
+                    (addFavorite)="addToFavorites()"
+                    (deleteFavorite)="deleteFromFavorites()">
+      </app-favorite>
     </app-character-detail>
-
   </div>
   <div class="content">
     <app-character-nav [hasComics]="(hasComics$ | async)"

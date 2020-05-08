@@ -24,6 +24,8 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
   @Input() characterWikiUrl: string;
   @Input() characterId: number;
   @Input() isLoggedIn: boolean;
+
+  // TODO move to character.component
   @Input() isFavorite: boolean;
   @Input() isFavoritesLoaded: boolean;
 

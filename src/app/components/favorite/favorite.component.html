@@ -1,0 +1,8 @@
+<div *ngIf="isFavoritesLoaded" class="favorite">
+  <button *ngIf="isFavorite" (click)="deleteFromFavorites()" class="skewed">
+    <span>Remove from Favorites</span>
+  </button>
+  <button *ngIf="!isFavorite" (click)="addToFavorites()" class="skewed">
+    <span>Add to Favorites</span>
+  </button>
+</div>
