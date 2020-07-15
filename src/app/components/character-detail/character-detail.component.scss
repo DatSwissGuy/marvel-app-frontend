@@ -36,8 +36,8 @@ button.back {
       -webkit-box-shadow: $box-shadow;
       -moz-box-shadow: $box-shadow;
       box-shadow: $box-shadow;
-      min-width: 21vw;
-      min-height: 21vw;
+      min-width: 250px;
+      min-height: 250px;
       background-size: cover;
       border: 0.25rem solid white;
       margin: 1rem;
@@ -113,7 +113,7 @@ button.back {
   background-color: white;
   position: relative;
   top: 0;
-  width: 20vw;
+  width: 220px;
   text-align: center;
 }
 
@@ -127,7 +127,7 @@ button.back {
   background-color: white;
   position: relative;
   top: 4vh;
-  width: 20vw;
+  width: 220px;
 
   h3 {
     color: $font-color;
