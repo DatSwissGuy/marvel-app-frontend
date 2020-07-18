@@ -17,24 +17,16 @@
     color: white;
     font-weight: bold;
     padding: 1rem;
+    cursor: pointer;
 
     a {
       color: white;
       text-decoration: none;
       padding: 1rem;
-
-      &:hover {
-        color: rgb(20, 20, 20);
-      }
     }
 
     p {
       margin: 0;
-      cursor: pointer;
-
-      &:hover {
-        color: rgb(20, 20, 20);
-      }
     }
   }
 
@@ -43,14 +35,11 @@
     color: white;
     font-weight: bold;
     padding: 1rem;
+    cursor: pointer;
 
     a {
       color: white;
       text-decoration: none;
-
-      &:hover {
-        color: rgb(20, 20, 20);
-      }
     }
   }
 }

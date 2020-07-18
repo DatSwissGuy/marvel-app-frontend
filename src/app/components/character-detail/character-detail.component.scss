@@ -32,7 +32,6 @@ button.back {
   .character-thumbnail {
 
     .character-pic {
-      border-radius: 50%;
       -webkit-box-shadow: $box-shadow;
       -moz-box-shadow: $box-shadow;
       box-shadow: $box-shadow;
@@ -45,15 +44,15 @@ button.back {
 
     .page-visits {
       position: relative;
-      left: 180px;
-      top: 10px;
+      left: 215px;
+      top: -15px;
       font-size: 1rem;
       font-weight: bold;
       border-radius: 50%;
       background-color: rgb(183, 29, 37);
       border: 5px solid rgb(183, 29, 37);
       color: white;
-      padding: 0.5vw;
+      padding: 15px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -126,7 +125,6 @@ button.back {
   padding: 0 1rem;
   background-color: white;
   position: relative;
-  top: 4vh;
   width: 220px;
 
   h3 {
