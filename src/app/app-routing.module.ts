@@ -12,10 +12,8 @@ const routes: Routes = [
   {path: 'character/:id', redirectTo: '/character/:id/comics', pathMatch: 'full'},
   {path: 'character/:id/:tab', component: CharacterComponent},
   {path: 'login', component: LoginComponent},
-  // IPA 2020
   {path: 'profile', redirectTo: '/profile/favorites', pathMatch: 'full'},
   {path: 'profile/:tab', component: UserProfileComponent}
-  // IPA 2020
 ];
 
 @NgModule({

@@ -9,7 +9,8 @@
         <div class="counter" [countUp]="pageVisits"
              [reanimateOnClick]="false"
              [options]="{useGrouping: false}"
-             (complete)="countOneUp()"></div>
+             (complete)="countOneUp()"
+             title="Page visits"></div>
         <p class="plus-one" *ngIf="shouldAnimate">+1</p>
       </div>
     </div>

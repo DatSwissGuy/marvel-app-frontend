@@ -43,7 +43,6 @@ import { RatingComponent } from './components/rating/rating.component';
 import { UserEffects } from './effects/user.effects';
 import { BackendApiInterceptor } from './http-interceptors/backend-api.interceptor';
 import { CountUpModule } from 'ngx-countup';
-// IPA 2020
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { UserProfileNavComponent } from './components/user-profile-nav/user-profile-nav.component';
@@ -54,8 +53,6 @@ import { TabTwoListComponent } from './components/tab-two-list/tab-two-list.comp
 import { FavoriteCardComponent } from './components/favorite-card/favorite-card.component';
 import { FavoriteEffects } from './effects/favorite.effects';
 import { FavoriteComponent } from './components/favorite/favorite.component';
-
-// IPA 2020
 
 @NgModule({
   declarations: [

@@ -1,4 +1,4 @@
 <div *ngIf="isFavoritesLoaded" class="favorite">
-    <span *ngIf="isFavorite" (click)="deleteFromFavorites()" class="favorite-heart-full">❤</span>
-    <span *ngIf="!isFavorite" (click)="addToFavorites()" class="favorite-heart-empty">❤</span>
+    <span *ngIf="isFavorite" (click)="deleteFromFavorites()" class="favorite-heart-full" title="Remove from favorites">❤</span>
+    <span *ngIf="!isFavorite" (click)="addToFavorites()" class="favorite-heart-empty" title="Add to favorites">❤</span>
 </div>

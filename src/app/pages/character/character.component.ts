@@ -56,14 +56,11 @@ export class CharacterComponent implements OnInit {
   userRating: CharacterRating;
   isLoggedIn$: Observable<boolean>;
   isLoggedIn: boolean;
-
-  // IPA 2020
   isFavorite$: Observable<boolean>;
   isFavoritesLoaded$: Observable<boolean>;
   favoriteId: number;
   characterName: string;
   characterImage: string;
-  // IPA 2020
 
   constructor(
     private router: Router,
@@ -103,8 +100,6 @@ export class CharacterComponent implements OnInit {
         characterId: this.characterId
       }));
     }
-
-    // IPA 2020
     this.isFavorite$ = this.store.select(getIsFavorite);
     this.store.select(getCharacterDetailApiResults).subscribe(
       character => {
@@ -118,10 +113,8 @@ export class CharacterComponent implements OnInit {
       favoriteId => this.favoriteId = favoriteId
     );
     this.isFavoritesLoaded$ = this.store.select(getIsFavoritesLoaded);
-    // IPA 2020
   }
 
-  // IPA 2020
   addToFavorites(): void {
     this.store.dispatch(new RequestAddFavorite({
       characterId: this.characterId,
@@ -137,7 +130,6 @@ export class CharacterComponent implements OnInit {
       }));
     }
   }
-  // IPA 2020
 
   onTabChange(event): void {
     this.router.navigate(['character', this.characterId, event]);
