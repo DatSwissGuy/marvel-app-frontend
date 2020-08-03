@@ -4,6 +4,22 @@ This is an educational Angular SPA consuming 2 RESTful APIs: The official Marvel
 
 This project was originally generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9 and has been updated / upgraded to Angular version 9 inclunding all dependencies (e.g. NgRx).
 
+This Angular App was created during my internship at [Liip](https://www.liip.ch)
+
+---
+# Screenshots
+![Marvel-App](doc/Marvel-App.png)
+*The home screen*
+
+
+![Marvel-Character-1](doc/Marvel-App-Character-2.png)
+*Character detail page, no ratings or favorite.*
+
+
+![Marvel-Character-2](doc/Marvel-App-Character.png)
+*Character detail page, with ratings and favorite.*
+
+---
 # Installation
 
 ## Marvel API
