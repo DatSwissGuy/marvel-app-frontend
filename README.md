@@ -13,11 +13,11 @@ This Angular App was created during my internship at [Liip](https://www.liip.ch)
 
 
 ![Marvel-Character-1](doc/Marvel-App-Character-2.png)
-*Character detail page, no ratings or favorite.*
+*Character detail page while logged in, no ratings and not favorized.*
 
 
 ![Marvel-Character-2](doc/Marvel-App-Character.png)
-*Character detail page, with ratings and favorite.*
+*Character detail page, with ratings and favorized.*
 
 ---
 # Installation
