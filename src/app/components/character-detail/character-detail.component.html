@@ -9,19 +9,22 @@
         <div class="counter" [countUp]="pageVisits"
              [reanimateOnClick]="false"
              [options]="{useGrouping: false}"
-             (complete)="countOneUp()"></div>
+             (complete)="countOneUp()"
+             title="Page visits"></div>
         <p class="plus-one" *ngIf="shouldAnimate">+1</p>
       </div>
     </div>
   </div>
-  <ng-content></ng-content>
+  <ng-content select="[slot=favorite-component]"></ng-content>
+  <ng-content select="[slot=rating-component]"></ng-content>
   <div *ngIf="characterDescription" class="character-description">
     <h3>{{characterName}}</h3>
     <p>{{characterDescription}}</p>
   </div>
   <div class="character-footer">
-    <button *ngIf="characterWikiUrl" class="wiki-link" (click)="openWikiLink()">
+    <button *ngIf="characterWikiUrl" class="skewed" (click)="openWikiLink()">
       <span>More Info</span>
     </button>
   </div>
 </div>
+

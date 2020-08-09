@@ -17,15 +17,29 @@
     color: white;
     font-weight: bold;
     padding: 1rem;
+    cursor: pointer;
 
     a {
       color: white;
       text-decoration: none;
+      padding: 1rem;
     }
 
     p {
       margin: 0;
-      cursor: pointer;
+    }
+  }
+
+  .profile {
+    float: right;
+    color: white;
+    font-weight: bold;
+    padding: 1rem;
+    cursor: pointer;
+
+    a {
+      color: white;
+      text-decoration: none;
     }
   }
 }

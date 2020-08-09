@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
 
+
   > .banner {
     height: $header-height;
     width: $header-width;
@@ -23,10 +24,11 @@
 
   > h1 {
     position: absolute;
-    top: 30vh;
+    top: 10vh;
     color: $header-font-color;
     font-size: 3rem;
     text-transform: uppercase;
     text-shadow: $text-shadow;
   }
 }
+

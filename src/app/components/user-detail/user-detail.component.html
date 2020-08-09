@@ -1,0 +1,13 @@
+<a routerLink="/">
+  <button class="back">&#8678; Back</button>
+</a>
+<div class="user-panel">
+  <div class="user-thumbnail">
+    <div class="user-pic"
+         [ngStyle]="{ 'background-image': 'url(../../../assets/no-character.jpg' }">
+    </div>
+  </div>
+  <div class="user-info">
+    <p>{{userFirstName}} {{userLastName}}</p>
+  </div>
+</div>
