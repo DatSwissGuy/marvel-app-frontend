@@ -2,7 +2,7 @@
 
 This is an educational Angular SPA consuming 2 RESTful APIs: The official Marvel API and a custom made API (Laravel).
 
-This project was originally generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9 and has been updated / upgraded to Angular version 9 inclunding all dependencies (e.g. NgRx).
+This project was originally generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9 and has been updated / upgraded to Angular version 9 including all dependencies (e.g. NgRx).
 
 This Angular App was created during my internship at [Liip](https://www.liip.ch)
 
@@ -20,7 +20,7 @@ This Angular App was created during my internship at [Liip](https://www.liip.ch)
 *Character detail page, with ratings and favorized.*
 
 ---
-# Installation
+# Run the app
 
 ## Marvel API
 First of all you'll need your own API credentials from the official Marvel API (https://developer.marvel.com). Add those credentials to the `environment.ts` file (src/environments/environment.ts):
