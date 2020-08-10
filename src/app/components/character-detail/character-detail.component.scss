@@ -167,7 +167,6 @@ button.skewed {
   span {
     display: inline-block;
     transform: skewX(20deg);
-
   }
 }
 
@@ -179,15 +178,8 @@ button.skewed {
 
     .character-thumbnail {
 
-      .character-pic {
-        width: 65vw;
-        height: 65vw;
-      }
-
       .page-visits {
-        left: 50vw;
-        top: 2vh;
-        padding: 1vw;
+        left: 220px;
 
         .counter {
           overflow: visible;
@@ -205,7 +197,6 @@ button.skewed {
   .favorite {
     width: 80vw;
   }
-
 }
 
 
