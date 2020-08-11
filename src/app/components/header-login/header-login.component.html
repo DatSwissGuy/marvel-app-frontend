@@ -1,10 +1,10 @@
 <div class="login-header">
   <div class="log-in">
-    <a *ngIf="(isAuthenticated$ | async) === false" routerLink="/login">Sign In</a>
-    <p *ngIf="isAuthenticated$ | async" (click)="logOut()">Sign Out</p>
+    <button class="skewed" *ngIf="(isAuthenticated$ | async) === false" routerLink="/login"><span>Sign In</span></button>
+    <button class="skewed" *ngIf="isAuthenticated$ | async" (click)="logOut()"><span>Sign Out</span></button>
   </div>
   <div class="profile">
-    <a *ngIf="isAuthenticated$ | async" routerLink="/profile">My Profile</a>
+    <button class="skewed" *ngIf="isAuthenticated$ | async" routerLink="/profile"><span>My Profile</span></button>
   </div>
 </div>
 
