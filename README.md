@@ -74,7 +74,7 @@ For further features, like a (character) visitor counter, a option to "like" / "
 # TODO's
 - Finish this readme :)
 - Clean up code e.g. get rid of some anti-patterns (E.g. current route via NgRx)
-- Add docker support to run the app
+- ~~Add docker support to run the app~~
 - Add AuthGuard for the user profile page
 - Add server side rendering and also "dockerize" it
 
