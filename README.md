@@ -59,7 +59,7 @@ export const environment = {
 `timeStamp` is just any random string (refer to the documentation) and the hash is generated via MD5 algorithm.
 
 ## Run the App via runtime (aka Angular CLI)
-Once you got everything set up, just run `ng serve` or `ng serve --prod` if you added the credentials to `environment.prod.ts.
+Once you got everything set up, just run `ng serve` or `ng serve --prod` if you added the credentials to `environment.prod.ts`.
 
 ## Run the App via Docker
 Alternatively you can run the app via Docker. You need to build the image first, run (in the project / repository root folder) `docker-compose build`. Then run `docker-compose up`.
