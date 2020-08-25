@@ -25,32 +25,58 @@ This Angular App was created during my internship at [Liip](https://www.liip.ch)
 # How to run the app
 
 ## Marvel API
-First of all you'll need your own API credentials from the official Marvel API (https://developer.marvel.com). Add those credentials to the `environment.ts` file (src/environments/environment.ts):
+First of all you'll need your own API credentials from the official Marvel API (https://developer.marvel.com). Add those credentials to the `environment.ts` file (src/environments/environment.ts) or...
+
+...you do the same as i did and add the API credentials to `environment.prod.ts`. I did this out of convenience, this is by no means good practice!
+
 
 ```typescript
-// Credentials for the Marvel API
-apiPublicKey: 'MyPublicKey',
-apiPrivateKey: 'MyPrivateKey',
-timeStamp: 'MyTimestamp',
+export const environment = {
+  production: true,
 
-// md5(Timestamp + Private Key + Public Key)
-// md5(MyTimestampMyPrivateKeyMyPublicKey)
-hash: 'MyGeneratedHash',
- ```
+  marvelApiUrl: 'http://gateway.marvel.com/v1/public',
+
+  // Credentials for the Marvel API
+  apiPublicKey: 'MyPublicKey',
+  apiPrivateKey: 'MyPrivateKey',
+  timeStamp: 'MyTimestamp',
+
+  // md5(Timestamp + Private Key + Public Key)
+  // md5(MyTimestampMyPrivateKeyMyPublicKey)
+  hash: 'MyGeneratedHash',
+
+  apiInitialOffset: 0,
+  apiResultLimit: 20,
+  apiTypeaheadResultLimit: 5,
+
+  // Backend (Laravel)
+  backEndApiUrl: 'http://localhost:8080/api/v1',
+  authClientId: 123,
+  authClientSecret: 'someSecretStringFromTheLaravelAuthApi'
+};
+```
 
 `timeStamp` is just any random string (refer to the documentation) and the hash is generated via MD5 algorithm.
 
-Once you got everything set up, just run `ng serve` in the repo root folder.
+## Run the App via runtime (aka Angular CLI)
+Once you got everything set up, just run `ng serve` or `ng serve --prod` if you added the credentials to `environment.prod.ts.
+
+## Run the App via Docker
+Alternatively you can run the app via Docker. You need to build the image first, run (in the project / repository root folder) `docker-compose build`. Then run `docker-compose up`.
+Mind you, this way changes in the source WON'T rebuild on its own!
 
 ## Backend (Optional)
-For further features, like a (character) visitor counter, a option to "like" / "favorize" characters, a user profile and so on, a backend was added (REST). Currently the following backend options are available or work in progress:
+For further features, like a (character) visitor counter, a option to "like" / "favorize" characters, a 5-star rating system, a user profile and so on, a backend was added (REST). Currently the following backend options are available or work in progress:
 
 - **Laravel** (+ MySQL) in this [repository](https://github.com/DatSwissGuy/marvel-app-backend).
-- **.NET core** (+ Any Database), currently work in progress.
+- **.NET core** (+ Any Database), currently work in progress, really hard to get into, this will certainly take a while.
 
 # TODO's
 - Finish this readme :)
-- Clean up code e.g. get rid of some anti-patterns
-- Add docker support to build and serve the app
+- Clean up code e.g. get rid of some anti-patterns (E.g. current route via NgRx)
+- Add docker support to run the app
 - Add AuthGuard for the user profile page
 - Add server side rendering and also "dockerize" it
+
+# DONT'S
+Don't use this app for production! One of the many reasons is the missing copyright annotations (which Marvel demands if you publish something which makes use of their API) and besides that, the access token from the backend is saved in local storage, which is a bad bad bad practice!
