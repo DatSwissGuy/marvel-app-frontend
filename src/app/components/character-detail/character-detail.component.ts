@@ -1,17 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { PageVisitsService } from '../../services/page-visits.service';
-import { Observable } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { getPageVisits } from '../../reducers';
+import { PageVisits } from '../../model/page-visits';
 
 @Component({
   selector: 'app-character-detail',
   templateUrl: './character-detail.component.html',
   styleUrls: ['./character-detail.component.scss']
 })
-export class CharacterDetailComponent implements OnInit {
+export class CharacterDetailComponent implements OnInit, OnDestroy {
 
   constructor(
-    private pageVisitsService: PageVisitsService
+    private store: Store<any>
   ) {
   }
 
@@ -20,29 +21,39 @@ export class CharacterDetailComponent implements OnInit {
   @Input() characterDescription: string;
   @Input() characterWikiUrl: string;
   @Input() characterId: number;
-  @Input() pageVisits: number;
+  @Input() isLoggedIn: boolean;
+
+  // TODO move to character.component
+  @Input() isFavorite: boolean;
+  @Input() isFavoritesLoaded: boolean;
+
+  @Output() addFavorite = new EventEmitter();
+  @Output() deleteFavorite = new EventEmitter();
 
   private alreadyVisited: boolean;
   public shouldAnimate = false;
-  private pageVisits$: Observable<number>;
+  public pageVisits: number;
+  private pageVisits$: Observable<PageVisits>;
+  private pageVisitSubscription: Subscription;
 
   ngOnInit(): void {
-    this.pageVisits$ = this.pageVisitsService.getCharacterVisits(this.characterId).pipe(
-      map(response => {
-        if (response.data.already_visited) {
-          this.alreadyVisited = true;
-          return this.pageVisits = response.data.visits;
+    this.pageVisits$ = this.store.select(getPageVisits);
+    this.pageVisitSubscription = this.pageVisits$.subscribe(
+      response => {
+        if (response) {
+          this.alreadyVisited = response.already_visited;
+          this.pageVisits = this.alreadyVisited ? response.visits : response.visits - 1;
         }
-        if (response.data.visits === 1) {
-          this.alreadyVisited = false;
-          return this.pageVisits = 0;
-        }
-        this.alreadyVisited = false;
-        return this.pageVisits = response.data.visits - 1;
-      }),
-      take(1)
+      }
     );
-    this.pageVisits$.subscribe();
+  }
+
+  addToFavorites() {
+    this.addFavorite.emit();
+  }
+
+  deleteFromFavorites() {
+    this.deleteFavorite.emit();
   }
 
   openWikiLink(): void {
@@ -58,4 +69,9 @@ export class CharacterDetailComponent implements OnInit {
       }, 1000);
     }
   }
+
+  ngOnDestroy(): void {
+    this.pageVisitSubscription.unsubscribe();
+  }
+
 }

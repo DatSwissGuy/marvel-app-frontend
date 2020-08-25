@@ -1,0 +1,15 @@
+<app-header-login></app-header-login>
+<app-header [pageTitle]="pageTitle"></app-header>
+<div class="container">
+  <div class="sidebar">
+    <app-user-detail [userFirstName]="(user$ | async) ? (user$ | async).firstname : null"
+                     [userLastName]="(user$ | async) ? (user$ | async).lastname : null"
+    ></app-user-detail>
+  </div>
+  <div class="content">
+    <app-user-profile-nav [activeTab]="activeTab"
+                          (tab)="onTabChange($event)">
+    </app-user-profile-nav>
+    <ng-container *ngComponentOutlet="getComponent()"></ng-container>
+  </div>
+</div>

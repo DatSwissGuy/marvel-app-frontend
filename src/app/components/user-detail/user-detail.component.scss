@@ -1,0 +1,71 @@
+@import '../../../variables';
+
+button.back {
+  width: 100%;
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 1rem;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  background-color: rgb(183, 29, 37);
+  outline: none;
+  transition: 0.2s ease-out;
+
+  &:hover {
+    opacity: 1;
+    transition: 0.2s ease-out;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.user-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .user-thumbnail {
+
+    .user-pic {
+      border-radius: 50%;
+      -webkit-box-shadow: $box-shadow;
+      -moz-box-shadow: $box-shadow;
+      box-shadow: $box-shadow;
+      min-width: 21vw;
+      min-height: 21vw;
+      background-size: cover;
+      border: 0.25rem solid white;
+      margin: 1rem;
+    }
+  }
+}
+
+.user-info {
+  p {
+    color: $font-color;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .user-panel {
+    margin-bottom: 2rem;
+
+    .user-thumbnail {
+
+      .user-pic {
+        width: 65vw;
+        height: 65vw;
+      }
+    }
+  }
+
+  .user-info {
+    width: 80vw;
+    text-align: center;
+  }
+}

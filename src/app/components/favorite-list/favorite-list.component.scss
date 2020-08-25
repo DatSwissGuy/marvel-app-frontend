@@ -1,0 +1,18 @@
+@import '../../../variables';
+
+.error {
+  color: $error-font-color;
+}
+
+.favorite-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+  background-color: $bg-color;
+
+  p {
+    color: $font-color;
+  }
+;
+}

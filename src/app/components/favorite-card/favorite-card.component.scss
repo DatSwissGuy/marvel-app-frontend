@@ -1,0 +1,53 @@
+@import '../../../variables';
+
+.favorite-card {
+  flex-flow: column;
+  margin: 10px;
+  padding: 5px;
+  -webkit-box-shadow: $box-shadow;
+  -moz-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+  transition: transform 0.2s ease-out;
+  background-color: $character-card-bg-color;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale3d(1.025, 1.025, 1);
+    transition: transform 0.2s ease-out;
+  }
+}
+
+.favorite-thumbnail img {
+  width: 230px;
+  height: 194px;
+  object-fit: cover;
+}
+
+.favorite-name p {
+  line-height: 0;
+  padding: 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: $font-color;
+}
+
+.delete-favorite {
+  position: relative;
+  top: -230px;
+  right: -205px;
+  cursor: pointer;
+  text-align: initial;
+  width: 32px;
+  height: 32px;
+
+  .delete-icon {
+    fill: rgb(200, 200, 200);
+    z-index: 1;
+
+    &:hover {
+      fill: rgb(173, 34, 34);
+    }
+  }
+}
+
+
