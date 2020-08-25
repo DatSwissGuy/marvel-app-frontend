@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+
+  marvel-app-frontend:
+    container_name: marvel-app-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    ports:
+      - "4200:4200"
