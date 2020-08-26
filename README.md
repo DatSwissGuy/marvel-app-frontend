@@ -71,12 +71,26 @@ For further features, like a (character) visitor counter, a option to "like" / "
 - **Laravel** (+ MySQL) in this [repository](https://github.com/DatSwissGuy/marvel-app-backend).
 - **.NET core** (+ Any Database), currently work in progress, really hard to get into, this will certainly take a while.
 
-# TODO's
-- Finish this readme :)
-- Clean up code e.g. get rid of some anti-patterns (E.g. current route via NgRx)
-- ~~Add docker support to run the app~~
-- Add AuthGuard for the user profile page
-- Add server side rendering and also "dockerize" it
+# Additional information
 
-# DONT'S
-Don't use this app for production! One of the many reasons is the missing copyright annotations (which Marvel demands if you publish something which makes use of their API) and besides that, the access token from the backend is saved in local storage, which is a bad bad bad practice!
+## TODO's
+These items are in no particular order or priority.
+
+- Finish this readme 😅
+- Clean up code e.g. get rid of some anti-patterns (E.g. current route via NgRx)
+- ~~Add inital docker support to run the app~~
+- Add a check if the backend is available, and if not, don't show the login header
+- Add AuthGuard for the user profile page
+- ~~Add initial server side rendering and also "dockerize" it~~
+- Add a multi stage docker setup: 1. build the application, 2. serve / run the app
+- Add a "full-stack" repository so the app including backend can be run with a single `docker-compose up` command.
+
+## WIP's
+- Better docker setups
+- More SSR pages
+
+## DONT'S
+Don't use this app for production! It's for educational purposes only! 
+
+One of the many reasons is the missing copyright annotations (which Marvel demands if you publish something which makes use of their API) and besides that, the access token from the backend is saved in local storage, which is a bad bad bad practice!
+Also: anti-patterns ☹️
