@@ -58,12 +58,17 @@ export const environment = {
 
 `timeStamp` is just any random string (refer to the documentation) and the hash is generated via MD5 algorithm.
 
+## Install dependencies (npm)
+`npm install`
+
 ## Run the App via runtime (aka Angular CLI)
 Once you got everything set up, just run `ng serve` or `ng serve --prod` if you added the credentials to `environment.prod.ts`.
 
 ## Run the App via Docker
 Alternatively you can run the app via Docker. You need to build the image first, run (in the project / repository root folder) `docker-compose build`. Then run `docker-compose up`.
 Mind you, this way changes in the source WON'T rebuild on its own!
+
+Why docker-compose for a single image / container? Out of convenience...
 
 ## Backend (Optional)
 For further features, like a (character) visitor counter, a option to "like" / "favorize" characters, a 5-star rating system, a user profile and so on, a backend was added (REST). Currently the following backend options are available or work in progress:
@@ -85,12 +90,13 @@ These items are in no particular order or priority.
 - Add a multi stage docker setup: 1. build the application, 2. serve / run the app
 - Add a "full-stack" repository so the app including backend can be run with a single `docker-compose up` command.
 
+
 ## WIP's
+- SSR still not working the way i'd like
 - Better docker setups
-- More SSR pages
 
 ## DONT'S
 Don't use this app for production! It's for educational purposes only! 
 
-One of the many reasons is the missing copyright annotations (which Marvel demands if you publish something which makes use of their API) and besides that, the access token from the backend is saved in local storage, which is a bad bad bad practice!
+One of the many reasons is the missing copyright annotations (which Marvel demands if you publish something which makes use of their API) and besides that, the access token from the backend is saved in local storage, which is a really bad practice!
 Also: anti-patterns ☹️
