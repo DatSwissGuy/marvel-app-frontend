@@ -100,7 +100,7 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
     TabTwoContainerComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,

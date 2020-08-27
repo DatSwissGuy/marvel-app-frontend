@@ -83,7 +83,6 @@ export class MarvelApiService {
       `limit=${limit}`
     ];
 
-    // TODO change to one single line -> search ? titleStarts : nameStarts
     if (search && type !== 'events') {
       queryParams.push(`titleStartsWith=${search}`);
     }

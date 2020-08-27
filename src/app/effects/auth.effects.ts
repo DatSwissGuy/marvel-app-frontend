@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType, ROOT_EFFECTS_INIT } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { AuthActions } from '../actions';
 import { map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import {
   RequestAccessToken,
-  RequestAccessTokenFromStorage,
   RequestUserData,
   SuccessAccessToken,
   SuccessAccessTokenFromStorage,
@@ -29,14 +28,6 @@ export class AuthEffects {
     private router: Router
   ) {
   }
-
-  @Effect()
-  init$ = this.actions$.pipe(
-    ofType(ROOT_EFFECTS_INIT),
-    map(() => {
-      return new RequestAccessTokenFromStorage();
-    })
-  );
 
   @Effect({dispatch: false})
   requestAccessTokenFromStorage$ = this.actions$.pipe(
