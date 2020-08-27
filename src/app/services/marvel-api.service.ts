@@ -8,6 +8,7 @@ import { MarvelCharacter } from '../model/marvel-character';
 import { MarvelApiResults } from '../model/marvel-api-results';
 import { MarvelComic } from '../model/marvel-comic';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -82,7 +83,6 @@ export class MarvelApiService {
       `limit=${limit}`
     ];
 
-    // TODO change to one single line -> search ? titleStarts : nameStarts
     if (search && type !== 'events') {
       queryParams.push(`titleStartsWith=${search}`);
     }

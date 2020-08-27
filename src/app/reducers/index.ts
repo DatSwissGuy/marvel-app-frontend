@@ -5,20 +5,27 @@ import * as fromRouter from '@ngrx/router-store';
 import * as fromMarvel from './marvel.reducer';
 import * as fromAuth from './auth.reducer';
 import * as fromRating from './rating.reducer';
-
+import * as fromPageVisit from './page-visits.reducer';
+import * as fromFavorite from './favorite.reducer';
+import { Favorite } from '../model/favorite';
+import { MarvelCharacter } from '../model/marvel-character';
 
 export interface State {
   router: fromRouter.RouterReducerState;
   marvel: fromMarvel.State;
   auth: fromAuth.State;
   rating: fromRating.State;
+  pageVisits: fromPageVisit.State;
+  favorite: fromFavorite.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
   router: fromRouter.routerReducer,
   marvel: fromMarvel.reducer,
   auth: fromAuth.reducer,
-  rating: fromRating.reducer
+  rating: fromRating.reducer,
+  pageVisits: fromPageVisit.reducer,
+  favorite: fromFavorite.reducer
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
@@ -28,6 +35,10 @@ export const selectMarvelState = createFeatureSelector<State, fromMarvel.State>(
 export const selectAuthState = createFeatureSelector<State, fromAuth.State>('auth');
 
 export const selectRatingState = createFeatureSelector<State, fromRating.State>('rating');
+
+export const selectPageVisitState = createFeatureSelector<State, fromPageVisit.State>('pageVisits');
+
+export const selectFavorite = createFeatureSelector<State, fromFavorite.State>('favorite');
 
 export const getCharacterApiResults = createSelector(
   selectMarvelState,
@@ -138,3 +149,48 @@ export const getUserCharacterRating = createSelector(
   selectRatingState,
   fromRating.getUserCharacterRating
 );
+
+export const getPageVisits = createSelector(
+  selectPageVisitState,
+  fromPageVisit.getPageVisits
+);
+
+export const getFavorites = createSelector(
+  selectFavorite,
+  fromFavorite.getFavorites
+);
+
+// TODO edge cases?
+export const getIsFavorite = createSelector(
+  getFavorites,
+  getCharacterDetailApiResults,
+  (favorites: Favorite[], currentCharacter: MarvelCharacter) => {
+    if (currentCharacter) {
+      return favorites.some(
+        value => value.character_id === currentCharacter.id
+      );
+    }
+    return false;
+  }
+);
+
+// TODO edge cases?
+export const getFavoriteId = createSelector(
+  getFavorites,
+  getCharacterDetailApiResults,
+  (favorites: Favorite[], currentCharacter: MarvelCharacter) => {
+    if (currentCharacter) {
+      const currentFavorite = favorites.find(value => value.character_id === currentCharacter.id);
+      if (currentFavorite) {
+        return currentFavorite.id;
+      }
+    }
+    return -1;
+  }
+);
+
+export const getIsFavoritesLoaded = createSelector(
+  selectFavorite,
+  fromFavorite.getFavoritesLoaded
+);
+

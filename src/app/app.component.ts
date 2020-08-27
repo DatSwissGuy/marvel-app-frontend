@@ -1,7 +1,8 @@
-import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getLoadingState } from './reducers';
 import { Observable } from 'rxjs';
+import { RequestAccessTokenFromStorage } from './actions/auth.actions';
 
 
 @Component({
@@ -11,16 +12,20 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit, AfterContentChecked {
 
-  isLoading$: Observable<boolean>;
-
   constructor(
     private store: Store<any>,
-    private changeDetector: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
+    @Inject(PLATFORM_ID) private platformId: any
   ) {
   }
 
+  isLoading$: Observable<boolean>;
+
   ngOnInit() {
     this.isLoading$ = this.store.select(getLoadingState);
+    if (this.platformId === 'browser') {
+      this.store.dispatch(new RequestAccessTokenFromStorage())
+    }
   }
 
   ngAfterContentChecked(): void {

@@ -1,0 +1,32 @@
+.container {
+
+  display: flex;
+  min-height: 80vh;
+
+  .sidebar {
+    width: 30vw;
+    flex-grow: 0;
+    background-color: #dddddd;
+  }
+
+  .content {
+    width: 70vw;
+    flex-grow: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-flow: column;
+    min-height: 80vh;
+
+    .sidebar {
+      width: initial;
+    }
+
+    .content {
+      width: initial;
+    }
+  }
+}

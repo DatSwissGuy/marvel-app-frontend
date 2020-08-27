@@ -24,34 +24,35 @@ button.back {
 }
 
 .character-panel {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  .character-polaroid {
+  .character-thumbnail {
 
     .character-pic {
-      border-radius: 50%;
       -webkit-box-shadow: $box-shadow;
       -moz-box-shadow: $box-shadow;
       box-shadow: $box-shadow;
-      width: 21vw;
-      height: 21vw;
+      min-width: 250px;
+      min-height: 250px;
       background-size: cover;
       border: 0.25rem solid white;
       margin: 1rem;
     }
 
-    div.page-visits {
+    .page-visits {
       position: relative;
-      left: 16vw;
+      left: 215px;
+      top: -15px;
       font-size: 1rem;
       font-weight: bold;
       border-radius: 50%;
-      background-color: #b71d25;
-      border: 5px solid #b71d25;
+      background-color: rgb(183, 29, 37);
+      border: 5px solid rgb(183, 29, 37);
       color: white;
-      padding: 1.5vw;
+      padding: 15px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -59,10 +60,11 @@ button.back {
       -moz-box-shadow: $box-shadow;
       box-shadow: $box-shadow;
 
-      div.counter {
+      .counter {
         overflow: visible;
         height: 0;
         margin-top: -1rem;
+        cursor: default;
       }
     }
 
@@ -101,6 +103,19 @@ button.back {
   }
 }
 
+.favorite {
+  margin: 0 1rem;
+  z-index: 1;
+  padding: 0 1rem;
+  -webkit-box-shadow: $box-shadow;
+  -moz-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+  background-color: white;
+  position: relative;
+  top: 0;
+  width: 220px;
+  text-align: center;
+}
 
 .character-description {
   margin: 0 1rem;
@@ -109,14 +124,12 @@ button.back {
   box-shadow: $box-shadow;
   z-index: 1;
   padding: 0 1rem;
-  width: 17vw;
   background-color: white;
   position: relative;
-  top: -6vh;
+  width: 220px;
 
   h3 {
     color: $font-color;
-    line-height: 1.5vw;
   }
 
   p {
@@ -126,10 +139,12 @@ button.back {
 
 
 .character-footer {
+  position: relative;
+  top: 5vh;
   z-index: 1;
 }
 
-button.wiki-link {
+button.skewed {
   transform: skewX(-20deg);
   opacity: 0.6;
   cursor: pointer;
@@ -152,11 +167,37 @@ button.wiki-link {
   span {
     display: inline-block;
     transform: skewX(20deg);
-
   }
 }
 
 
+@media only screen and (max-width: 600px) {
+
+  .character-panel {
+    margin-bottom: 2rem;
+
+    .character-thumbnail {
+
+      .page-visits {
+        left: 220px;
+
+        .counter {
+          overflow: visible;
+          height: 0;
+          margin-top: -1rem;
+        }
+      }
+    }
+  }
+
+  .character-description {
+    width: 80vw;
+  }
+
+  .favorite {
+    width: 80vw;
+  }
+}
 
 
 

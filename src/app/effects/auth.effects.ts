@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType, ROOT_EFFECTS_INIT } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { AuthActions } from '../actions';
 import { map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import {
   RequestAccessToken,
-  RequestAccessTokenFromStorage,
   RequestUserData,
   SuccessAccessToken,
   SuccessAccessTokenFromStorage,
@@ -15,6 +14,7 @@ import { Store } from '@ngrx/store';
 import { getAuthToken } from '../reducers';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { FavoriteService } from '../services/favorite.service';
 
 
 @Injectable()
@@ -23,18 +23,11 @@ export class AuthEffects {
     private actions$: Actions<AuthActions.AuthActionsUnion>,
     private authService: AuthService,
     private userService: UserService,
+    private favoriteService: FavoriteService,
     private store: Store<any>,
     private router: Router
   ) {
   }
-
-  @Effect()
-  init$ = this.actions$.pipe(
-    ofType(ROOT_EFFECTS_INIT),
-    map(() => {
-      return new RequestAccessTokenFromStorage();
-    })
-  );
 
   @Effect({dispatch: false})
   requestAccessTokenFromStorage$ = this.actions$.pipe(
@@ -92,11 +85,14 @@ export class AuthEffects {
     withLatestFrom(this.store.select(getAuthToken)),
     switchMap(() => {
       localStorage.removeItem('token');
-      return this.authService.logoutFromBackend();
+      this.authService.logoutFromBackend();
+      return this.router.navigate(['/']);
     }),
     map(() => {
       return new SuccessRemoveAccessToken();
     })
   );
+
+
 }
 

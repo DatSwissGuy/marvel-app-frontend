@@ -8,15 +8,26 @@
                           [characterDescription]="(character$ | async) ? (character$ | async).description : null"
                           [characterWikiUrl]="(characterWikiUrl$ | async) ? (characterWikiUrl$ | async).url : null"
                           [characterName]="(character$ | async) ? (character$ | async).name : null"
-                          [characterId]="characterId">
-      <app-rating [averageRating]="(averageRating$ | async) ? (averageRating$ | async).average : null"
+                          [characterId]="characterId"
+                          [isLoggedIn]="isLoggedIn$ | async"
+                          [isFavorite]="isFavorite$ | async"
+                          [isFavoritesLoaded]="isFavoritesLoaded$ | async"
+                          (addFavorite)="addToFavorites()"
+                          (deleteFavorite)="deleteFromFavorites()">
+      <app-rating slot="rating-component"
+                  [averageRating]="(averageRating$ | async) ? (averageRating$ | async).average : null"
                   [userRating]="(userRating$ | async) ? (userRating$ | async).rating : null"
                   [isLoggedIn]="isLoggedIn$ | async"
                   (voting)="vote($event)"
                   (deleteVoting)="deleteVote($event)">
       </app-rating>
+      <app-favorite slot="favorite-component"
+                    [isFavorite]="isFavorite$ | async"
+                    [isFavoritesLoaded]="isFavoritesLoaded$ | async"
+                    (addFavorite)="addToFavorites()"
+                    (deleteFavorite)="deleteFromFavorites()">
+      </app-favorite>
     </app-character-detail>
-
   </div>
   <div class="content">
     <app-character-nav [hasComics]="(hasComics$ | async)"
