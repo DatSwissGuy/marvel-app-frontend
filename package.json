@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run marvel-app:serve-ssr",
-    "serve:ssr": "node dist/server/main.js",
+    "serve:ssr": "node dist/marvel-app/server/main.js",
     "build:ssr": "ng build --prod && ng run marvel-app:server:production",
     "prerender": "ng run marvel-app:prerender"
   },
