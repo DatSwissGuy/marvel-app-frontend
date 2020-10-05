@@ -1,4 +1,4 @@
-# MarvelApp
+# MarvelApp (Frontend Only)
 
 This is an educational Angular SPA consuming 2 RESTful APIs: The official Marvel API and a custom made API (Laravel).
 
@@ -74,7 +74,6 @@ Why docker-compose for a single image / container? Out of convenience...
 For further features, like a (character) visitor counter, a option to "like" / "favorize" characters, a 5-star rating system, a user profile and so on, a backend was added (REST). Currently the following backend options are available or work in progress:
 
 - **Laravel** (+ MySQL) in this [repository](https://github.com/DatSwissGuy/marvel-app-backend).
-- **.NET core** (+ Any Database), currently work in progress, really hard to get into, this will certainly take a while.
 
 # Additional information
 
@@ -88,7 +87,6 @@ These items are in no particular order or priority.
 - Add AuthGuard for the user profile page
 - ~~Add initial server side rendering and also "dockerize" it~~
 - Add a multi stage docker setup: 1. build the application, 2. serve / run the app
-- Add a "full-stack" repository so the app including backend can be run with a single `docker-compose up` command.
 
 
 ## WIP's
