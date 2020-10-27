@@ -1,10 +1,10 @@
 <app-header-login></app-header-login>
-<app-header [headerImage]="headerImage$ | async"
+<app-header [headerImage]="headerImage"
             [pageTitle]="(character$ | async) ? (character$ | async).name : null"></app-header>
 
 <div class="container">
   <div class="sidebar">
-    <app-character-detail [characterImage]="headerImage$ | async"
+    <app-character-detail [characterImage]="characterImage$ | async"
                           [characterDescription]="(character$ | async) ? (character$ | async).description : null"
                           [characterWikiUrl]="(characterWikiUrl$ | async) ? (characterWikiUrl$ | async).url : null"
                           [characterName]="(character$ | async) ? (character$ | async).name : null"

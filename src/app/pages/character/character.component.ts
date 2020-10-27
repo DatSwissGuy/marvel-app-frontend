@@ -44,8 +44,8 @@ import { RequestAddFavorite, RequestDeleteFavorite } from '../../actions/favorit
 export class CharacterComponent implements OnInit {
   character$: Observable<MarvelCharacter>;
   characterWikiUrl$: Observable<MarvelCharacterUrl>;
+  characterImage$: Observable<string>;
   characterId: number;
-  headerImage$: Observable<string>;
   hasComics$: Observable<boolean>;
   hasSeries$: Observable<boolean>;
   hasStories$: Observable<boolean>;
@@ -61,6 +61,7 @@ export class CharacterComponent implements OnInit {
   favoriteId: number;
   characterName: string;
   characterImage: string;
+  headerImage: string;
 
   constructor(
     private router: Router,
@@ -71,9 +72,11 @@ export class CharacterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.characterName = 'Loading...';
+    this.headerImage = '../../../assets/wallpaper-2.jpg';
     this.character$ = this.store.select(getCharacterDetailApiResults);
+    this.characterImage$ = this.store.select(getCharacterHeaderImage);
     this.characterWikiUrl$ = this.store.select(getCharacterWikiUrl);
-    this.headerImage$ = this.store.select(getCharacterHeaderImage);
     this.hasComics$ = this.store.select(getHasComics);
     this.hasSeries$ = this.store.select(getHasSeries);
     this.hasStories$ = this.store.select(getHasStories);
