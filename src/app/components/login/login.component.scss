@@ -67,3 +67,12 @@
     font-size: 80%;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .login {
+
+    .login-box {
+      width: 90%;
+    }
+  }
+}
