@@ -22,10 +22,9 @@
       transform: skewX(-20deg);
       cursor: pointer;
       color: white;
-      margin: 0.5rem;
       padding: 0.5rem 1rem;
       font-size: 1rem;
-      background-color: rgb(183, 29, 37);
+      background-color: $button-color;
       box-shadow: 2px 2px 7px 0 rgba(127, 127, 127, 0.5);;
       outline: none;
       border: none;
@@ -35,6 +34,7 @@
         opacity: 1;
         transform: skewX(-20deg) scale3d(1.05, 1.05, 1);
         transition: transform 0.2s ease-out;
+        background-color: $button-color-hover;
       }
 
       span {
@@ -52,10 +52,9 @@
       transform: skewX(-20deg);
       cursor: pointer;
       color: white;
-      margin: 0.5rem;
       padding: 0.5rem 1rem;
       font-size: 1rem;
-      background-color: rgb(183, 29, 37);
+      background-color: $button-color;
       box-shadow: 2px 2px 7px 0 rgba(127, 127, 127, 0.5);
       outline: none;
       border: none;
@@ -65,6 +64,7 @@
         opacity: 1;
         transform: skewX(-20deg) scale3d(1.05, 1.05, 1);
         transition: transform 0.2s ease-out;
+        background-color: $button-color-hover;
       }
 
       span {
@@ -76,22 +76,33 @@
 }
 
 @media only screen and (max-width: 600px) {
+
   .login-header {
     display: flex;
     justify-content: center;
     position: fixed;
     background-color: $bg-color;
-    height: 60px;
-    box-shadow: 2px 2px 7px 0 rgba(127, 127, 127, 0.5);
+    height: $header-height-mobile-offset;
+    box-shadow: $box-shadow;
 
     .profile {
       float: initial;
       padding: 0.25rem;
+
+      button.skewed {
+        margin: initial;
+        background-color: $button-color-hover;
+      }
     }
 
     .log-in {
       float: initial;
       padding: 0.25rem;
+
+      button.skewed {
+        margin: initial;
+        background-color: $button-color-hover;
+      }
     }
   }
 }
