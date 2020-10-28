@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .container {
 
   display: flex;
@@ -20,6 +22,8 @@
     display: flex;
     flex-flow: column;
     min-height: 80vh;
+    position: relative;
+    top: $header-height-mobile-offset;
 
     .sidebar {
       width: initial;
