@@ -21,22 +21,21 @@
 
 button.delete-voting {
   transform: skewX(-20deg);
-  opacity: 0.6;
   cursor: pointer;
   color: white;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  background-color: rgb(183, 29, 37);
+  background-color: $button-color;
   box-shadow: 2px 2px 7px 0 rgba(127, 127, 127, 0.5);;
   outline: none;
   border: none;
   transition: transform 0.2s ease-out;
 
   &:hover {
-    opacity: 1;
     transform: skewX(-20deg) scale3d(1.05, 1.05, 1);
     transition: transform 0.2s ease-out;
+    background-color: $button-color-hover;
   }
 
   span {
