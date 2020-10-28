@@ -15,7 +15,7 @@
 
   p {
     color: $font-color;
-    margin: 0.25rem 0;
+    margin: 0.5rem 0 0 0;
   }
 }
 
@@ -67,7 +67,7 @@ button.delete-voting {
     }
 
     span:hover {
-      opacity: 100%;
+      opacity: 1;
       color: darkred;
       cursor: pointer;
     }
