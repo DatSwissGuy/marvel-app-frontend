@@ -2,19 +2,18 @@
 
 button.back {
   width: 100%;
-  opacity: 0.6;
   cursor: pointer;
   padding: 1rem;
   color: white;
   font-size: 1rem;
   border: none;
-  background-color: rgb(183, 29, 37);
+  background-color: $button-color;
   outline: none;
   transition: 0.2s ease-out;
 
   &:hover {
-    opacity: 1;
     transition: 0.2s ease-out;
+    background-color: $button-color-hover;
   }
 
   a {
@@ -103,20 +102,6 @@ button.back {
   }
 }
 
-.favorite {
-  margin: 0 1rem;
-  z-index: 1;
-  padding: 0 1rem;
-  -webkit-box-shadow: $box-shadow;
-  -moz-box-shadow: $box-shadow;
-  box-shadow: $box-shadow;
-  background-color: white;
-  position: relative;
-  top: 0;
-  width: 220px;
-  text-align: center;
-}
-
 .character-description {
   margin: 0 1rem;
   -webkit-box-shadow: $box-shadow;
@@ -146,22 +131,21 @@ button.back {
 
 button.skewed {
   transform: skewX(-20deg);
-  opacity: 0.6;
   cursor: pointer;
   color: white;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  background-color: rgb(183, 29, 37);
+  background-color: $button-color;
   box-shadow: 2px 2px 7px 0 rgba(127, 127, 127, 0.5);;
   outline: none;
   border: none;
   transition: transform 0.2s ease-out;
 
   &:hover {
-    opacity: 1;
     transform: skewX(-20deg) scale3d(1.05, 1.05, 1);
     transition: transform 0.2s ease-out;
+    background-color: $button-color-hover;
   }
 
   span {
@@ -173,8 +157,17 @@ button.skewed {
 
 @media only screen and (max-width: 600px) {
 
+  button.back {
+    background-color: $button-color-hover;
+  }
+
+  button.skewed {
+    background-color: $button-color-hover;
+  }
+
   .character-panel {
     margin-bottom: 2rem;
+    min-height: initial;
 
     .character-thumbnail {
 
@@ -194,9 +187,10 @@ button.skewed {
     width: 80vw;
   }
 
-  .favorite {
-    width: 80vw;
-  }
+  .character-footer {
+    position: initial;
+    top: initial;
+  };
 }
 
 

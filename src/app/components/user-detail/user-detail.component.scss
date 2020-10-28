@@ -2,19 +2,18 @@
 
 button.back {
   width: 100%;
-  opacity: 0.6;
   cursor: pointer;
   padding: 1rem;
   color: white;
   font-size: 1rem;
   border: none;
-  background-color: rgb(183, 29, 37);
+  background-color: $button-color;
   outline: none;
   transition: 0.2s ease-out;
 
   &:hover {
-    opacity: 1;
     transition: 0.2s ease-out;
+    background-color: $button-color-hover;
   }
 
   a {
@@ -52,8 +51,12 @@ button.back {
 
 @media only screen and (max-width: 600px) {
 
+  button.back {
+    opacity: initial;
+  }
+
   .user-panel {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 
     .user-thumbnail {
 

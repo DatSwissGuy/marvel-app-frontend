@@ -5,12 +5,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  height: $header-height;
 
   > .banner {
     height: $header-height;
     width: $header-width;
-    padding: 4.5rem 0;
   }
 
   > .banner {
@@ -24,11 +23,26 @@
 
   > h1 {
     position: absolute;
-    top: 10vh;
+    top: initial;
     color: $header-font-color;
     font-size: 3rem;
     text-transform: uppercase;
     text-shadow: $text-shadow;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .header {
+    height: $header-height-mobile;
+    position: relative;
+    top: $header-height-mobile-offset;
+
+    > .banner {
+      height: $header-height-mobile;
+      background-size: 150%;
+    }
+  }
+
+}
+
 
