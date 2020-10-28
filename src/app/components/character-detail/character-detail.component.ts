@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { getPageVisits } from '../../reducers';
-import { PageVisits } from '../../model/page-visits';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Observable, Subscription} from 'rxjs';
+import {Store} from '@ngrx/store';
+import {getPageVisits} from '../../reducers';
+import {PageVisits} from '../../model/page-visits';
 
 @Component({
   selector: 'app-character-detail',
