@@ -15,39 +15,43 @@
     transform: scale3d(1.025, 1.025, 1);
     transition: transform 0.2s ease-out;
   }
-}
 
-.favorite-thumbnail img {
-  width: 230px;
-  height: 194px;
-  object-fit: cover;
-}
+  .favorite-thumbnail img {
+    width: 230px;
+    height: 194px;
+    object-fit: cover;
+  }
 
-.favorite-name p {
-  line-height: 0;
-  padding: 0 0.25rem;
-  font-size: 0.75rem;
-  font-weight: bold;
-  color: $font-color;
-}
+  .favorite-name p {
+    line-height: 0;
+    padding: 0 0.25rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: $font-color;
+  }
 
-.delete-favorite {
-  position: relative;
-  top: -230px;
-  right: -205px;
-  cursor: pointer;
-  text-align: initial;
-  width: 32px;
-  height: 32px;
+  .delete-favorite {
+    position: relative;
+    top: -215px;
+    right: -190px;
+    cursor: pointer;
+    text-align: initial;
+    width: 0;
+    height: 0;
 
-  .delete-icon {
-    fill: rgb(200, 200, 200);
-    z-index: 1;
+    .delete-icon {
+      fill: rgb(200, 200, 200);
+      z-index: 1;
 
-    &:hover {
-      fill: rgb(173, 34, 34);
+      &:hover {
+        fill: rgb(173, 34, 34);
+      }
     }
   }
 }
+
+
+
+
 
 
