@@ -11,8 +11,9 @@
     font-size: 1.5rem;
     cursor: pointer;
     background-color: white;
-    padding: .75rem;
+    padding: 12px 14px 12px 14px;
     border-radius: 50%;
+    box-shadow: $box-shadow;
 
     &:hover {
       color: darkred;
@@ -24,16 +25,14 @@
     font-size: 1.5rem;
     cursor: pointer;
     background-color: white;
-    padding: .75rem;
+    padding: 12px 14px 12px 14px;
     border-radius: 50%;
+    box-shadow: $box-shadow;
 
     &:hover {
       color: darkred;
     }
   }
-
-
-
 }
 
 @media only screen and (max-width: 600px) {
