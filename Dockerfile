@@ -1,5 +1,5 @@
 # Base image
-FROM node:14.2.0-alpine3.11
+FROM node:lts-alpine
 # Working directory, duh...
 WORKDIR /app
 # Add binaries to path
