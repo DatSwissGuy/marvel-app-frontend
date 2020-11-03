@@ -4,7 +4,7 @@ import { CharactersComponent } from './pages/characters/characters.component';
 import { CharacterComponent } from './pages/character/character.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
-import {ProfileGuardService} from './services/profile-guard.service';
+import { ProfileGuardService } from './services/profile-guard.service';
 
 
 const routes: Routes = [
