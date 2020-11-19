@@ -1,5 +1,6 @@
-.container {
+@import '../../../variables';
 
+.container {
   display: flex;
   min-height: 80vh;
 
@@ -16,10 +17,13 @@
 }
 
 @media only screen and (max-width: 600px) {
+
   .container {
     display: flex;
     flex-flow: column;
     min-height: 80vh;
+    position: relative;
+    top: $header-height-mobile-offset;
 
     .sidebar {
       width: initial;

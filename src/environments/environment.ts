@@ -9,7 +9,6 @@ export const environment = {
 
   // Credentials for the Marvel API
   apiPublicKey: 'MyPublicKey',
-  apiPrivateKey: 'MyPrivateKey',
   timeStamp: 'MyTimestamp',
 
   // md5(Timestamp + Private Key + Public Key)
