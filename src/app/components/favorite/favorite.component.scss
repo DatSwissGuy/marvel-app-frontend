@@ -2,58 +2,34 @@
 
 @keyframes heart-add-to-favorites {
   0% {
-    color: #ff0000
+    color: violet;
   }
-  10% {
-    color: #ff8000
+  16.6% {
+    color: indigo;
   }
-  20% {
-    color: #ffff00
+  33.2% {
+    color: blue;
   }
-  30% {
-    color: #80ff00
+  49.8% {
+    color: green;
   }
-  40% {
-    color: #00ff00
+  66.4% {
+    color: yellow;
   }
-  50% {
-    color: #00ff80
-  }
-  60% {
-    color: #00ffff
-  }
-  70% {
-    color: #0080ff
-  }
-  80% {
-    color: #0000ff
-  }
-  90% {
-    color: #8000ff
+  83% {
+    color: orange;
   }
   100% {
-    color: #ff0080
+    color: red;
   }
 }
 
 @keyframes heart-remove-from-favorites {
   0% {
-    color: #dddddd
-  }
-  20% {
-    color: #bbbbbb
-  }
-  40% {
-    color: #999999
-  }
-  60% {
-    color: #666666
-  }
-  80% {
-    color: #333333
+    color: #dddddd;
   }
   100% {
-    color: #000000
+    color: #555555;
   }
 }
 
