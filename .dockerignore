@@ -1,4 +1,8 @@
+doc
+e2e
 node_modules
 dist
+README.md
 .git
-doc
+.gitignore
+.editorconfig
