@@ -1,5 +1,62 @@
 @import '../../../variables';
 
+@keyframes heart-add-to-favorites {
+  0% {
+    color: #ff0000
+  }
+  10% {
+    color: #ff8000
+  }
+  20% {
+    color: #ffff00
+  }
+  30% {
+    color: #80ff00
+  }
+  40% {
+    color: #00ff00
+  }
+  50% {
+    color: #00ff80
+  }
+  60% {
+    color: #00ffff
+  }
+  70% {
+    color: #0080ff
+  }
+  80% {
+    color: #0000ff
+  }
+  90% {
+    color: #8000ff
+  }
+  100% {
+    color: #ff0080
+  }
+}
+
+@keyframes heart-remove-from-favorites {
+  0% {
+    color: #dddddd
+  }
+  20% {
+    color: #bbbbbb
+  }
+  40% {
+    color: #999999
+  }
+  60% {
+    color: #666666
+  }
+  80% {
+    color: #333333
+  }
+  100% {
+    color: #000000
+  }
+}
+
 .favorite {
   text-align: center;
   position: relative;
@@ -16,7 +73,7 @@
     box-shadow: $box-shadow;
 
     &:hover {
-      color: darkred;
+      animation: heart-remove-from-favorites 1s infinite alternate;
     }
   }
 
@@ -30,7 +87,7 @@
     box-shadow: $box-shadow;
 
     &:hover {
-      color: darkred;
+      animation: heart-add-to-favorites 1s infinite;
     }
   }
 }
