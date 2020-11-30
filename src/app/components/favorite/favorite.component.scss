@@ -1,5 +1,38 @@
 @import '../../../variables';
 
+@keyframes heart-add-to-favorites {
+  0% {
+    color: violet;
+  }
+  16.6% {
+    color: indigo;
+  }
+  33.2% {
+    color: blue;
+  }
+  49.8% {
+    color: green;
+  }
+  66.4% {
+    color: yellow;
+  }
+  83% {
+    color: orange;
+  }
+  100% {
+    color: red;
+  }
+}
+
+@keyframes heart-remove-from-favorites {
+  0% {
+    color: #dddddd;
+  }
+  100% {
+    color: #555555;
+  }
+}
+
 .favorite {
   text-align: center;
   position: relative;
@@ -16,7 +49,7 @@
     box-shadow: $box-shadow;
 
     &:hover {
-      color: darkred;
+      animation: heart-remove-from-favorites 1s infinite alternate;
     }
   }
 
@@ -30,7 +63,7 @@
     box-shadow: $box-shadow;
 
     &:hover {
-      color: darkred;
+      animation: heart-add-to-favorites 1s infinite;
     }
   }
 }

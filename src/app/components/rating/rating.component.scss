@@ -1,5 +1,29 @@
 @import '../../../variables';
 
+@keyframes star-rainbow {
+  0% {
+    color: violet;
+  }
+  16.6% {
+    color: indigo;
+  }
+  33.2% {
+    color: blue;
+  }
+  49.8% {
+    color: green;
+  }
+  66.4% {
+    color: yellow;
+  }
+  83% {
+    color: orange;
+  }
+  100% {
+    color: red;
+  }
+}
+
 .rating-container {
   display: flex;
   justify-content: center;
@@ -67,7 +91,7 @@ button.delete-voting {
 
     span:hover {
       opacity: 1;
-      color: darkred;
+      animation: star-rainbow 1s infinite;
       cursor: pointer;
     }
   }
