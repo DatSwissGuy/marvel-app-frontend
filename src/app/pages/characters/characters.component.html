@@ -5,7 +5,7 @@
 
   <app-search
     [searchTerm]="searchTerm"
-    [searchResults]="searchResults$ | async"
+    [searchResults]="(searchResults$ | async)"
     (searchChange)="onSearchQueryChange($event)"
     (searchClick)="onSearchResultClick($event)"
     (searchEnter)="onKeyDownEnter()"
@@ -13,10 +13,10 @@
   </app-search>
   <app-character-list *ngIf="(characters$ | async) && (characters$ | async).results"
                       [characters]="(characters$ | async).results"></app-character-list>
-  <app-pagination *ngIf="characters$ | async"
-                  [total]="(characters$ | async).total"
-                  [limit]="(characters$ | async).limit"
-                  [offset]="(characters$ | async).offset"
+  <app-pagination *ngIf="(characters$ | async) as characters"
+                  [total]="characters.total"
+                  [limit]="characters.limit"
+                  [offset]="characters.offset"
                   (pageChange)="onPageChange($event)">
   </app-pagination>
 
